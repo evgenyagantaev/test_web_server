@@ -1,6 +1,7 @@
 import http.server
 import ssl
 import threading
+import time
 
 # HTTP request handler that redirects all requests to HTTPS
 class RedirectHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
@@ -68,7 +69,8 @@ if __name__ == "__main__":
     
     print("Servers are running. Press Ctrl+C to stop.")
     try:
+        # Using sleep to avoid high CPU usage
         while True:
-            pass
+            time.sleep(1)
     except KeyboardInterrupt:
         print("\nServers stopped.") 
